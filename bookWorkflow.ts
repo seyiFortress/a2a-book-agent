@@ -127,7 +127,7 @@ export const bookExcerptWorkflow = createWorkflow({
           }),
         }),
       ]),
-      execute: async ({ inputData, context }) => {
+      execute: async ({ inputData }) => {
         const { searchQuery, isValid } = inputData;
         
         // Skip if validation failed

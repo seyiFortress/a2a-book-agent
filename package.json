@@ -3,9 +3,19 @@
   "version": "1.0.0",
   "description": "build a A2A-enabled Public Domain Book Extractor project that perfectly demonstrates the power of combining Mastra's agent framework with Telex's communication protocol",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
-    "start": "node --loader ts-node/esm/transpile-only server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "start:dev": "node --loader ts-node/esm/transpile-only server.ts",
     "test": "node test-agent.js",
     "test:dev": "set TEST_BASE_URL=http://localhost:4111 && node test-agent.js"
   },
@@ -22,11 +32,11 @@
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "mastra": "^0.17.7",
-    "ts-node": "^10.9.2",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^24.9.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
 }
