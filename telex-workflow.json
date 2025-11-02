@@ -1,0 +1,98 @@
+{
+  "id": "book-extractor-workflow",
+  "name": "Public Domain Book Extractor",
+  "description": "Extracts excerpts from public domain books using Project Gutenberg",
+  "category": "education",
+  "type": "a2a/mastra-a2a-node",
+  "icon": "📚",
+  "position": {
+    "x": 250,
+    "y": 150
+  },
+  "data": {
+    "agentId": "book-extractor-001",
+    "endpoint": "http://localhost:4111/a2a/book-extractor-001",
+    "capabilities": {
+      "streaming": true,
+      "pushNotifications": false
+    },
+    "defaultOutputModes": ["text"],
+    "skills": [
+      {
+        "name": "extractBookExcerpt",
+        "description": "Searches for a public domain book on Project Gutenberg and returns a short excerpt",
+        "inputModes": ["text"],
+        "outputModes": ["text"]
+      }
+    ]
+  },
+  "long_description": "The Public Domain Book Extractor is an A2A-enabled agent that searches for and extracts excerpts from public domain books available through Project Gutenberg. Simply provide a search query for a book, author, or topic, and the agent will find relevant public domain works and provide you with a sample excerpt. This agent is perfect for discovering classic literature, researching historical texts, or finding quotes from famous authors whose works are in the public domain. The agent uses the Gutendex API to search for books and then retrieves the full text to provide meaningful excerpts. All content returned is from public domain works, making it safe to use for educational purposes, research, or creative projects.",
+  "inputs": [
+    {
+      "name": "searchQuery",
+      "type": "text",
+      "description": "The query to search for a book, e.g., 'Sherlock Holmes' or 'Pride and Prejudice'",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "bookExcerpt",
+      "type": "object",
+      "description": "Contains the book title, authors, and a 500-character excerpt",
+      "properties": {
+        "title": "string",
+        "authors": "string",
+        "excerpt": "string"
+      }
+    }
+  ],
+  "examples": [
+    {
+      "description": "Find a classic mystery novel",
+      "input": {
+        "searchQuery": "Sherlock Holmes"
+      },
+      "output": {
+        "title": "The Adventures of Sherlock Holmes",
+        "authors": "Arthur Conan Doyle",
+        "excerpt": "To Sherlock Holmes she is always the woman. I have seldom heard him mention her under any other name..."
+      }
+    },
+    {
+      "description": "Find a romance classic",
+      "input": {
+        "searchQuery": "Pride and Prejudice"
+      },
+      "output": {
+        "title": "Pride and Prejudice",
+        "authors": "Jane Austen",
+        "excerpt": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife..."
+      }
+    }
+  ],
+  "tags": ["books", "literature", "public domain", "education", "research", "gutenberg"],
+  "version": "1.0.0",
+  "author": "A2A Book Agent",
+  "license": "ISC",
+  "homepage": "https://github.com/seyiFortress/a2a-book-agent",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seyiFortress/a2a-book-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seyiFortress/a2a-book-agent/issues"
+  },
+  "keywords": ["a2a", "mastra", "books", "literature", "public domain", "gutenberg"],
+  "config": {
+    "timeout": 30000,
+    "retries": 3,
+    "retryDelay": 1000
+  },
+  "ui": {
+    "width": 320,
+    "height": 240,
+    "color": "#4CAF50",
+    "backgroundColor": "#E8F5E8"
+  }
+}
