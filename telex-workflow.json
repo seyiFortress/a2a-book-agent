@@ -2,6 +2,7 @@
   "id": "book-extractor-workflow",
   "name": "Public Domain Book Extractor",
   "description": "Extracts excerpts from public domain books using Project Gutenberg",
+  "short_description": "Get excerpts from public domain books",
   "category": "education",
   "type": "a2a/mastra-a2a-node",
   "icon": "📚",
